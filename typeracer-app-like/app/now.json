@@ -1,7 +1,0 @@
-{
-    "env": {
-        "API_URL": "https://typeracer-api.now.sh/",
-        "REACT_APP_API_URL": "https://typeracer-api.now.sh/",
-        "NODE_ENV": "production"
-    }
-}
