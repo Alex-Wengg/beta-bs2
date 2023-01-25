@@ -1,11 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const dotenv = require('dotenv');
-dotenv.config();
-
 mongoose.connect(
-  "mongodb://0.0.0.0:27017/compilerdb",
+  "mongodb://localhost/compilerdb",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -15,8 +12,6 @@ mongoose.connect(
     console.log("Successfully connected to MongoDB: compilerdb");
   }
 );
-console.log(mongoose.connection.readyState);
-
 
 const { generateFile } = require("./generateFile");
 
@@ -63,7 +58,6 @@ app.get("/status", async (req, res) => {
 
   return res.status(200).json({ success: true, job });
 });
-console.log(mongoose.connection.readyState);
 
 app.listen(5000, () => {
   console.log(`Listening on port 5000!`);
