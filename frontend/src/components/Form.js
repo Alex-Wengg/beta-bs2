@@ -36,7 +36,7 @@ const Form = ({isOpen,isOver,gameID})=>{
         setJobId(null);
         setJobDetails(null);
         console.log(payload)
-        const { data } = await axios.post("http://localhost:3001/run", payload);
+        const { data } = await axios.post("http://localhost:5000/run", payload);
         if (data.jobId) {
           setJobId(data.jobId);
           setStatus("Submitted.");
@@ -44,7 +44,7 @@ const Form = ({isOpen,isOver,gameID})=>{
           // poll here
           pollInterval = setInterval(async () => {
             const { data: statusRes } = await axios.get(
-              `http://localhost:3001/status`,
+              `http://localhost:5000/status`,
               {
                 params: {
                   id: data.jobId,
